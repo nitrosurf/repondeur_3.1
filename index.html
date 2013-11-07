@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#plugin-menu .plugin-nav a").click(function () {
+            jQuery("#plugin-menu .content > ul").hide();
+            jQuery("#plugin-menu .plugin-nav ul li").removeClass("active");
+            jQuery(this).parent().addClass("active");
+            jQuery("#" + jQuery(this).data("toggle")).show();
+            return false;
+        });
+    });
+</script>
+
+<p class="page-header">
+    <span class="lead">Station météorologique de SARAH</span><br/>
+    <b>Nouveautés V3.0 :</b><br/>
+	- Météo du monde<br/>
+    - Météo sous 7 jours<br/>
+    - Températures (matin, après-midi, soir, nuit, minimales, maximales)<br/>
+    - Humidité de l'air<br/>
+    - Vitesse du vent<br/>
+    - Pression de l'air<br/>
+    <br/><b>Contributeurs :</b><br/>
+    - V3.0 : Vincent Legavre<br/>
+	- V1.0 - V2.1 : Jean-Philippe Encausse<br/>
+</p>
+
+<div id="plugin-menu" class="row-fluid">
+    <!-- Navigation -->
+    <div class="span3 well plugin-nav">
+        <ul class="nav nav-list">
+            <li class="nav-header">Documentation</li>
+            <li class="active"><a href="" data-toggle="plugin-doc">Météo</a></li>
+            <li class="nav-header">Commandes vocales</li>
+            <li><a href="#" data-toggle="plugin-examples">Exemples</a></li>
+            <li><a href="#" data-toggle="plugin-errors">Erreurs</a></li>
+        </ul>
+    </div>
+    <!-- Content -->
+    <div class="span9 content">
+
+        <ul class="unstyled" id="plugin-doc">
+            1°) Editez le fichier <em>"meteo.prop"</em>
+            <li><i class="icon-play-circle"></i> Avec l'identifiant par défaut de votre ville préférée. <em>("id": "2983990" pour Rennes)</em></li>
+            <li><i class="icon-play-circle"></i> Avec le jour par défaut pour lequel vous souhaitez avoir la météo. <em>("day": "0" pour Aujourd'hui OU "day": "1" pour demain OU "day": "2" pour après-demain...)</em></li><br/>
+            <li><i class="icon-play-circle"></i> Comment récupérer l'identifiant d'une ville ?</li>
+            - Utilisez cette URL : <em><a target="_blank" href="http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=fr&q=rennes,fr">"http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=fr&q=rennes,fr"</a></em>.<br/>
+            - Remplacez <em>"rennes"</em> par la ville de votre choix. Attention certaines villes ont le même nom mais se situent dans des pays différents. (Ex : Rome se trouve en Italie ou aux USA).<br/>
+            - Remplacez <em>"fr"</em> par le code du pays de votre choix. La liste des codes des pays se trouvent à cette adresse : <em><a target="_blank" href="https://fr.wikipedia.org/wiki/Liste_des_domaines_Internet_nationaux_de_premier_niveau">"https://fr.wikipedia.org/wiki/Liste_des_domaines_Internet_nationaux_de_premier_niveau"</a></em><br/>
+            - L'identifiant de la ville se trouve dans le champ <em>"id"</em> qui se trouve dans le champ <em>"city"</em> du résultat de la page web.<br/>
+            <br/>
+            2°) Editez le fichier <em>"meteo.xml"</em>
+            <li><i class="icon-play-circle"></i> Ajoutez vos villes favorites avec leurs identifiants dans la partie <em>"Villes favorites"</em><br/>
+            Exemples :<br/><em>&lt;item&gt;à Rennes&lt;tag&gt;out.action.id="2983990";&lt;/tag&gt;&lt;/item&gt;
+            <br/>&lt;item&gt;à Barcelone&lt;tag&gt;out.action.id="6544100";&lt;/tag&gt;&lt;/item&gt;</em></li>
+        </ul>
+
+        <ul class="unstyled" id="plugin-examples" style="display: none;">
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps ?"</em> renvoi la météo du jour avec les températures minimales et maximales pour la ville et le jour configurés par défaut dans le fichier meteo.prop</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps aujourd'hui ?"</em> renvoi la météo du jour avec les températures minimales et maximales</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps demain ?"</em> renvoi la météo de demain avec les températures minimales et maximales</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps après demain ?"</em> renvoi la météo pour après demain avec les températures minimales et maximales</li><br/>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps lundi ?"</em> renvoi la météo pour lundi prochain avec les températures minimales et maximales</li>
+            <br/>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps ce soir ?"</em> renvoi la météo du jour avec la température de ce soir</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps lundi matin ?"</em> renvoi la météo de lundi avec la température de lundi matin</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps vendredi dans la nuit ?"</em> renvoi la météo de vendredi avec la température de vendredi dans la nuit</li>
+            <br/>Villes favorites :<br/>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps à Rennes ?"</em> renvoi la météo du jour avec les températures minimales et maximales pour la ville de Rennes</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps samedi soir à Barcelone ?"</em> renvoi la météo avec la température de samedi soir pour la ville de Barcelone</li>
+            <br/>Villes qui ne sont pas dans les favoris :<br/>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps d'après toi à San Francisco ?"</em> renvoi la météo du jour avec les températures minimales et maximales pour la ville de San Francisco</li>
+            <li><i class="icon-play-circle"></i> <em>"il fait quel temps selon toi à Nouméa ?"</em> renvoi la météo du jour avec les températures minimales et maximales pour la ville de Nouméa</li>
+            <br>Limitation / optimisation à effectuer :
+            <br/>- Les villes recherchées par reconnaissance vocale (google speech) ne permettent pas pour l'instant d'avoir la météo pour un jour ou un moment de la journée particulier. (Exemple : <em>"il fait quel temps samedi soir selon toi à Nouméa"</em> si Nouméa ne fait pas partie des villes favorites, alors cette commande vocale ne fonctionnera pas. Seule la météo du jour et les températures minimales et maximales seront renvoyées via la commande <em>"il fait quel temps selon toi à Nouméa ?"</em>.)
+            <br>- La recherche d'une ville par reconnaissance vocale (google speech) en précisant le pays correspondant n'est pas encore fonctionnel. (Exemple : <em>"il fait quel temps selon toi à Rome ?"</em> renverra la météo de Rome aux Etats-Unis.)
+        </ul>
+
+        <ul class="unstyled" id="plugin-errors" style="display: none;">
+            <li><i class="icon-play-circle"></i> <em>"configuration invalide"</em> : L'identifiant et/ou le jour par défaut n'ont pas été saisis dans le fichier <em>"meteo.prop"</em></li>
+            <li><i class="icon-play-circle"></i> <em>"Je n'ai pas compris"</em> : Lorsque vous demandez la météo pour une ville qui n'a pas été enregistrée dans les favoris, le plugin essai de comprendre la ville dictée via la reconnaissance vocale google speech. Si la ville n'a pas été reconnue, Sarah vous répond le message <em>"Je n'ai pas compris"</em>. (Google speech reconnait les plus grandes villes). N'hésitez pas également à bien prononcer les mots clés <em>"d'après toi à"</em> ou <em>"selon toi à" pour une bonne reconnaissance vocale.</em>.</li>
+            <li><i class="icon-play-circle"></i> <em>"Je n'ai pas trouvé d'information"</em> : Causes possibles : pas de connexion Internet ? ; le webservice ne répond pas ; erreur du webservice, erreur dans l'identifiant de la ville ; ville non trouvée.</li>
+            <li><i class="icon-play-circle"></i> <em>"Je n'ai pas encore les prévisions météorologique pour [jour de la semaine]"</em> : Le webservice n'a pas encore été mis à jour et ne permet pas de récupérer les informations météorologique du jour demandé</li>
+        </ul>
+    </div>
+</div>

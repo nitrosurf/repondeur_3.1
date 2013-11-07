@@ -1,0 +1,9 @@
+{
+  "modules" : { 
+    "repondeur"  : {
+      "description": "repondeur freebox",
+      "version": "1.0",
+      "id": "2982317"
+}
+  }
+}

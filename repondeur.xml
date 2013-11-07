@@ -1,0 +1,19 @@
+﻿<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulerepondeur" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulerepondeur" scope="public">
+    <example>Sarah lit mes messages</example>
+    <tag>out.action=new Object(); </tag>
+    <tag>out._attributes.dictation="false";</tag>
+    <item>Jarvisse</item>
+    
+    <one-of>
+      
+      <item>est ce que jai des messages.</item>
+      
+    </one-of>
+  
+    
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/repondeur";</tag>
+  </rule>
+
+ 
+</grammar>
