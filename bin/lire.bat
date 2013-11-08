@@ -1,0 +1,1 @@
+"%ProgramFiles%\VideoLAN\VLC\vlc.exe" .\plugins\mail\speech\ vlc://quit
