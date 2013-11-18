@@ -1,0 +1,10 @@
+
+.plugin-gridster.repondeur .front {
+  background: #FFFFFF url('images/tel.png') center 40px;
+  background-size:   150px 75px;
+  background-repeat: no-repeat;
+}
+
+.plugin-gridster.blinkstick .back {
+  background: #FFFFFF;
+}
