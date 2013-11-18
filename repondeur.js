@@ -148,10 +148,10 @@ console.log(jour, mois, annee, heure, minute, numero);
     // Attention car SARAH.play() coupe la lecture après 2 minutes -- cf la doc 
     callback({'tts' : tts}); 
     var lecture = function (){
-    SARAH.runApp('C:\\Program Files\\VideoLAN\\VLC\\vlc.exe',dir2read+nom);
+    SARAH.play(dir2read+nom);
     };
     setTimeout (function() { lecture('')}, 10000)
-     setTimeout(function() { lisMessage(flist) }, 40000)
+     setTimeout(function() { lisMessage(flist) }, 45000)
 
  }
 }  
