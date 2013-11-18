@@ -1,7 +1,7 @@
 {
   "modules" : { 
     "repondeur"  : {
-      "description": "repondeur freebox",
+      "description": "Répondeur FREEBOX",
       "version": "1.0"
       }
   }

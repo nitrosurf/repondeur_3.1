@@ -8,7 +8,7 @@
     <one-of>
       
       <item>est ce que jai des messages.<tag>out.action.nombr="nombre";</tag></item>
-      <item>efface les messages du répondeur.<tag>out.action.mess="efface";</tag></item>
+      <item>efface les messages du répondeur sil te plait.<tag>out.action.mess="efface";</tag></item>
       <item>je veux écouter mon répondeur.<tag>out.action.mess="lire";</tag></item>
     </one-of>
   
